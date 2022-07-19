@@ -1,3 +1,28 @@
+// MARK: Story Animation
+const storyTimeline = gsap.timeline({
+
+})
+
+storyTimeline
+    .set("section.house",{
+            opacity: 0,
+        })
+    .set("header",{
+        opacity: 0,
+    })
+    .to("header",{
+        opacity: 1,
+        
+    })
+    .to("header",{
+        opacity: 0,
+        delay: 2
+    })
+    .to("section.house",{
+        opacity: 1,
+        
+    })
+
 // MARK: - Eyes Animation
 const eyesTimeline = gsap.timeline({
     repeat: -1,
