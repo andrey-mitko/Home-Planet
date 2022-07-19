@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap");
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   font-family: "IBM Plex Mono";
   font-size: 16px;
@@ -7,6 +16,10 @@ body {
 
   color: #ffffff;
   background-color: #140e3c;
+}
+
+main {
+  animation: fadeIn 1s 1s both;
 }
 
 header,
@@ -36,6 +49,15 @@ h1 {
   font-weight: 700;
 }
 
+section.scene svg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 700vh;
+  max-width: none;
+}
+
 section.house {
   display: flex;
   justify-content: center;
@@ -51,6 +73,11 @@ section.house svg g#scene {
 
 section.house svg:hover g#scene {
   opacity: 0.25;
+}
+
+section.scene {
+  opacity: 1;
+  position: absolute;
 }
 
 div.label {

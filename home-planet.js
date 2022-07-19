@@ -10,19 +10,42 @@ storyTimeline
     .set("header",{
         opacity: 0,
     })
+    .set("section.scene",{
+        opacity: 0,
+    })
+    .set("section.scene svg",{
+        x: (index) => {
+            return (index * 100 + 100) + "vh"
+        },
+    })
     .to("header",{
         opacity: 1,
         
     })
     .to("header",{
         opacity: 0,
-        delay: 2
+        delay: 3
     })
+    .addLabel("startScene")
+    .to("section.scene",{
+        opacity: 1,
+    }, "startScene")
+    .to("section.scene svg",{
+        x: "0vh",
+        duration: 10,
+        ease: "linear",
+    }, "startScene")
+    .addLabel("endScene")
+    .to("section.scene",{
+        opacity: 0,
+    }, "endScene")
     .to("section.house",{
         opacity: 1,
-        
-    })
+    }, "endScene")
 
+const parallaxTimeline = gsap.timeline({})
+parallaxTimeline
+    
 // MARK: - Eyes Animation
 const eyesTimeline = gsap.timeline({
     repeat: -1,
