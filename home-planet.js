@@ -1,3 +1,4 @@
+// MARK: - Eyes Animation
 const eyesTimeline = gsap.timeline({
     repeat: -1,
 })
@@ -18,7 +19,7 @@ eyesTimeline
         delay: 4
     })
 
-
+// MARK: - Hat Animation
 const hatTimeline = gsap.timeline({
     repeat: -1,
     repeatDelay: 4,
@@ -42,6 +43,7 @@ hatTimeline
     })
 
 
+// MARK: - Arms Animation
 const leftArmTimeline = gsap.timeline({
     repeat: -1,
 })
@@ -50,7 +52,6 @@ const rightArmTimeline = gsap.timeline({
 })
 const leftArm = document.querySelector('#left-arm');
 const rightArm = document.querySelector('#right-arm');
-
 leftArmTimeline
     .set(leftArm, {
         rotation: 0,
@@ -80,3 +81,30 @@ rightArmTimeline
         duration: 0.25,
     })
 
+
+// MARK: - TV Animation
+const tvTimeline = gsap.timeline({
+    repeat: -1,
+})
+let o = 0.75;
+const tvLight = document.querySelector('#tv-light');
+tvTimeline
+    .set(tvLight, {
+        opacity: o,
+    })
+    .to(tvLight, {
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+    })
+    .to(tvLight, {
+        opacity: o,
+    })
+    .to(tvLight, {
+        opacity: 1,
+        duration: 0.4,
+        delay: 0.5,
+    })
+    .to(tvLight, {
+        opacity: o,
+    })

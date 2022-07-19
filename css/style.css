@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -25,4 +25,21 @@ h1 {
   margin-top: 32px;
   font-size: 32px;
   font-weight: 700;
+}
+
+section.house {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section.house svg g#scene {
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+
+section.house svg:hover g#scene {
+  opacity: 0.25;
 }
