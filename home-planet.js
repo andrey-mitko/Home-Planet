@@ -108,3 +108,35 @@ tvTimeline
     .to(tvLight, {
         opacity: o,
     })
+
+// MARK: - Label Animation
+const label = document.querySelector('div.label');
+const links = document.querySelectorAll('svg a');
+
+links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        label.classList.add('is-visible');
+        label.innerHTML = link.getAttribute('data-label');
+
+        gsap.to(links, {
+            opacity: 0.25,
+        })
+        gsap.to(link, {
+            opacity: 1,
+        })
+    })
+    link.addEventListener('mouseleave', () => {
+        label.classList.remove('is-visible');
+        label.innerHTML = "Label";
+
+        gsap.to(links, {
+            opacity: 1,
+        })
+       
+    })
+})
+
+document.addEventListener('mousemove', (e) => {
+    label.style.top = e.clientY + 'px';
+    label.style.left = e.clientX + 'px';
+})

@@ -43,3 +43,20 @@ section.house svg g#scene {
 section.house svg:hover g#scene {
   opacity: 0.25;
 }
+
+div.label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: white;
+  color: #140e3c;
+  padding: 8px 16px 8px 16px;
+  z-index: 3;
+  transform: translate(-50%, 24px);
+  pointer-events: none;
+}
+
+div.label.is-visible {
+  opacity: 1;
+}
