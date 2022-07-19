@@ -3,27 +3,23 @@ const storyTimeline = gsap.timeline({
 
 })
 
-storyTimeline
-    .set("section.house",{
+
+    gsap.set("section.house",{
             opacity: 0,
         })
-    .set("header",{
+    gsap.set("section.scene",{
         opacity: 0,
     })
-    .set("section.scene",{
-        opacity: 0,
-    })
-    .set("section.scene svg",{
+    gsap.set("section.scene svg",{
         x: (index) => {
             return (index * 100 + 100) + "vh"
         },
     })
-    .to("header",{
-        opacity: 1,
-        
-    })
+
+storyTimeline
     .to("header",{
         opacity: 0,
+        duration: 4,
         delay: 3
     })
     .addLabel("startScene")
@@ -32,19 +28,34 @@ storyTimeline
     }, "startScene")
     .to("section.scene svg",{
         x: "0vh",
-        duration: 10,
+        duration: 15,
         ease: "linear",
     }, "startScene")
     .addLabel("endScene")
     .to("section.scene",{
         opacity: 0,
+        duration: 2
     }, "endScene")
     .to("section.house",{
         opacity: 1,
+        duration: 4
     }, "endScene")
 
-const parallaxTimeline = gsap.timeline({})
-parallaxTimeline
+
+storyTimeline.pause();
+
+let update
+
+
+window.addEventListener("scroll", function () {
+    const pixels = window.pageYOffset + window.innerHeight;
+    const playheadTime = pixels / 8000;
+  
+    cancelAnimationFrame(update);
+    update = requestAnimationFrame(function () {
+        storyTimeline.seek(storyTimeline.duration() * playheadTime);
+    });
+  });
     
 // MARK: - Eyes Animation
 const eyesTimeline = gsap.timeline({
