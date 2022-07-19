@@ -43,7 +43,7 @@ header {
 
 header svg {
   max-height: 300px;
-  padding: 0px 32px;
+  padding: 32px 32px;
 }
 
 h1 {
@@ -73,7 +73,7 @@ section.house {
 section.house svg {
   flex-grow: 1;
   max-width: 90%;
-  margin: 0px 32px;
+  margin: 32px 32px;
 }
 
 section.house svg g#scene {
